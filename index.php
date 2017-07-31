@@ -35,9 +35,9 @@ function KeyboardMenu(){
     $buttons = [['hi'], ['how are you']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons,
-        'resize_keyboard' => false,
+        'resize_keyboard' => true,
         'one_time_keyboard' => false,
-        'selective' => false,
+        'selective' => true,
     ]);
 
     $replayKey = '$replay_markup'.$keyboard;
