@@ -12,6 +12,10 @@ $id = $output['message']['chat']['id'];
 $token = '414134665:AAHfOIdeikQD04NdKckL8wadhqzggvmSqw0';
 $message = $output['message']['text'];
 
+if (isset($output['callback_query']['data'])){
+    checkInline($output, $token);
+}
+
 switch ($message){
     case 'hi':
         $message = 'Hello';
@@ -71,8 +75,8 @@ function inlineKeyboard(){
     return $reply_markup;
 }
 
-if (isset($output['callback_query']['data'])){
-    $id = $output['callback_query']['message']['chat']['id'];
-    $message = $output['callback_query']['data'];
-    sendMessage($token, $id, $message);
+function checkInline($output, $token){
+        $id = $output['callback_query']['message']['chat']['id'];
+        $message = $output['callback_query']['data'];
+        sendMessage($token, $id, $message);
 }
