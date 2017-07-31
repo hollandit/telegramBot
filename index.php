@@ -40,6 +40,6 @@ function KeyboardMenu(){
         'selective' => true,
     ]);
 
-    $replay_markup = '&replay_markup'.$keyboard;
+    $replay_markup = '&replay_markup='.$keyboard.'';
     return $replay_markup;
 }
