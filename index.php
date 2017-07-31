@@ -15,11 +15,15 @@ $message = $output['message']['text'];
 switch ($message){
     case 'hi':
         $message = 'Hello';
-        sendMessage($token, $id, $message);
+        sendMessage($token, $id, $message.KeyboardMenu());
         break;
-        case 'how are you':
+    case 'how are you':
         $message = 'I am fine';
         sendMessage($token, $id, $message.KeyboardMenu());
+        break;
+    case 'Inline_keyboard':
+        $message = 'DOME';
+        sendMessage($token, $id, $message.inlineKeyboard());
         break;
     default:
         $message = 'What are you say';
@@ -41,5 +45,29 @@ function KeyboardMenu(){
     ]);
 
     $reply_markup = '&reply_markup='.$keyboard.'';
+    return $reply_markup;
+}
+
+/**
+ * @return string
+ */
+function inlineKeyboard(){
+//    $reply_markup = '';
+    $x1 = [
+        'text' => 'inline_one',
+        'callback_data' => 'inline_one',
+    ];
+    $x2 = [
+        'text' => 'inline_five',
+        'callback_data' => 'inline_five',
+    ];
+
+    $ops = [[$x1], [$x2]];
+    $keyboard = [
+      'inline_keyboard' => $ops,
+    ];
+
+    $keyboard = json_encode($keyboard, true);
+    $reply_markup = '&reply_markup'.$keyboard;
     return $reply_markup;
 }
