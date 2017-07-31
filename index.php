@@ -52,7 +52,7 @@ function KeyboardMenu(){
  * @return string
  */
 function inlineKeyboard(){
-    $reply_markup = '';
+//    $reply_markup = '';
     $x1 = [
         'text' => 'inline_one',
         'callback_data' => 'inline_one',
@@ -68,6 +68,6 @@ function inlineKeyboard(){
     ];
 
     $keyboard = json_encode($keyboard, true);
-    $reply_markup = '&reply_markup'.$keyboard;
+    $reply_markup = '&reply_markup='.$keyboard;
     return $reply_markup;
 }
