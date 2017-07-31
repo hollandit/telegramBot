@@ -9,5 +9,8 @@
 $output = json_decode(file_get_contents('php://input'), true);
 file_put_contents('logs.txt', $output);
 $id = $output['message']['chat']['id'];
-file_get_contents("https://api.telegram.org/bot414134665:AAHfOIdeikQD04NdKckL8wadhqzggvmSqw0/sendMessage?chat_id=".$id."&text=i can see");
+$token = '414134665:AAHfOIdeikQD04NdKckL8wadhqzggvmSqw0';
+function sendMessage($token, $id){
+    file_get_contents("https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$id."&text=i can see");
+}
 file_put_contents('logs.txt', $id);
