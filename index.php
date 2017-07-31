@@ -52,7 +52,6 @@ function KeyboardMenu(){
  * @return string
  */
 function inlineKeyboard(){
-    $reply_markup = '';
     $x1 = [
         'text' => 'inline_one',
         'callback_data' => 'inline_one',
@@ -70,4 +69,10 @@ function inlineKeyboard(){
     $keyboard = json_encode($keyboard, true);
     $reply_markup = '&reply_markup='.$keyboard;
     return $reply_markup;
+}
+
+if (isset($output['callback_query']['data'])){
+    $id = $output['callback_query']['message']['chat']['id'];
+    $message = $output['callback_query']['data'];
+    sendMessage($token, $id, $message);
 }
