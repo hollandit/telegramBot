@@ -17,7 +17,7 @@ switch ($message){
         $message = 'Hello';
         sendMessage($token, $id, $message);
         break;
-    case 'How are you':
+        case 'how are you':
         $message = 'I am find';
         sendMessage($token, $id, $message.KeyboardMenu());
         break;
@@ -40,6 +40,6 @@ function KeyboardMenu(){
         'selective' => true,
     ]);
 
-    $replayKey = '$replay_markup'.$keyboard;
-    return $replayKey;
+    $replay_markup = '&replay_markup'.$keyboard;
+    return $replay_markup;
 }
