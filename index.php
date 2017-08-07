@@ -19,15 +19,15 @@ if (isset($output['callback_query']['data'])){
 switch ($message){
     case 'hi':
         $message = 'Hello';
-        sendMessage($token, $id, $message.ReplyKeyboardRemove());
+        sendMessage($token, $id, ReplyKeyboardRemove());
         break;
     case 'how are you':
         $message = 'I am fine';
-        sendMessage($token, $id, $message.ReplyKeyboardRemove());
+        sendMessage($token, $id, ReplyKeyboardRemove());
         break;
     case 'Inline_keyboard':
         $message = 'DOME';
-        sendMessage($token, $id, $message.ReplyKeyboardRemove());
+        sendMessage($token, $id, ReplyKeyboardRemove());
         break;
     default:
         $message = 'What are you say';
