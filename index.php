@@ -38,7 +38,7 @@ function ReplyKeyboardRemove(){
     $reply_markup = json_encode([
         'remove_keyboard' => true,
     ]);
-    return 'reply_markup';
+    return $reply_markup;
 }
 
 function sendMessage($token, $id, $message){
@@ -46,44 +46,44 @@ function sendMessage($token, $id, $message){
 }
 file_put_contents('logs.txt', $id);
 
-function KeyboardMenu(){
-    $buttons = [['hi'], ['how are you']];
-    $keyboard = json_encode($keyboard = [
-        'keyboard' => $buttons,
-        'resize_keyboard' => true,
-        'one_time_keyboard' => false,
-        'selective' => true,
-    ]);
+// function KeyboardMenu(){
+//     $buttons = [['hi'], ['how are you']];
+//     $keyboard = json_encode($keyboard = [
+//         'keyboard' => $buttons,
+//         'resize_keyboard' => true,
+//         'one_time_keyboard' => false,
+//         'selective' => true,
+//     ]);
 
-    $reply_markup = '&reply_markup='.$keyboard.'';
-    return $reply_markup;
-}
+//     $reply_markup = '&reply_markup='.$keyboard.'';
+//     return $reply_markup;
+// }
 
-/**
- * @return string
- */
-function inlineKeyboard(){
-    $x1 = [
-        'text' => 'inline_one',
-        'callback_data' => 'inline_one',
-    ];
-    $x2 = [
-        'text' => 'inline_five',
-        'callback_data' => 'inline_five',
-    ];
+// /**
+//  * @return string
+//  */
+// function inlineKeyboard(){
+//     $x1 = [
+//         'text' => 'inline_one',
+//         'callback_data' => 'inline_one',
+//     ];
+//     $x2 = [
+//         'text' => 'inline_five',
+//         'callback_data' => 'inline_five',
+//     ];
 
-    $ops = [[$x1], [$x2]];
-    $keyboard = [
-      'inline_keyboard' => $ops,
-    ];
+//     $ops = [[$x1], [$x2]];
+//     $keyboard = [
+//       'inline_keyboard' => $ops,
+//     ];
 
-    $keyboard = json_encode($keyboard, true);
-    $reply_markup = '&reply_markup='.$keyboard;
-    return $reply_markup;
-}
+//     $keyboard = json_encode($keyboard, true);
+//     $reply_markup = '&reply_markup='.$keyboard;
+//     return $reply_markup;
+// }
 
-function checkInline($output, $token){
-        $id = $output['callback_query']['message']['chat']['id'];
-        $message = $output['callback_query']['data'];
-        sendMessage($token, $id, $message);
-}
+// function checkInline($output, $token){
+//         $id = $output['callback_query']['message']['chat']['id'];
+//         $message = $output['callback_query']['data'];
+//         sendMessage($token, $id, $message);
+// }
