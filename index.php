@@ -35,9 +35,10 @@ switch ($message){
 }
 
 function ReplyKeyboardRemove(){
-    $reply_markup = json_encode([
+    $removeKeyboard = json_encode([
         'remove_keyboard' => true,
     ]);
+    '$reply_markup' => $removeKeyboard;
     return $reply_markup;
 }
 
