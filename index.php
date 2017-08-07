@@ -34,13 +34,13 @@ switch ($message){
         sendMessage($token, $id, $message);
 }
 
-function ReplyKeyboardRemove(){
-    $removeKeyboard = json_encode([
-        'remove_keyboard' => true,
-    ]);
-    '$reply_markup' => $removeKeyboard;
-    return $reply_markup;
-}
+public function ReplyKeyboardRemove(){
+        $removeKeyboard = json_encode([
+            'remove_keyboard' => true,
+        ]);
+        $reply_markup = '&reply_markup='.$removeKeyboard;
+        return $reply_markup;
+    }
 
 function sendMessage($token, $id, $message){
     file_get_contents("https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$id."&text=".$message);
