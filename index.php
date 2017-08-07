@@ -19,19 +19,26 @@ if (isset($output['callback_query']['data'])){
 switch ($message){
     case 'hi':
         $message = 'Hello';
-        sendMessage($token, $id, $message.KeyboardMenu());
+        sendMessage($token, $id, $message.ReplyKeyboardRemove());
         break;
     case 'how are you':
         $message = 'I am fine';
-        sendMessage($token, $id, $message.KeyboardMenu());
+        sendMessage($token, $id, $message.ReplyKeyboardRemove());
         break;
     case 'Inline_keyboard':
         $message = 'DOME';
-        sendMessage($token, $id, $message.inlineKeyboard());
+        sendMessage($token, $id, $message.ReplyKeyboardRemove());
         break;
     default:
         $message = 'What are you say';
         sendMessage($token, $id, $message);
+}
+
+function ReplyKeyboardRemove(){
+    $reply_markup = json_encode([
+        'remove_keyboard' => true,
+    ]);
+    return 'reply_markup';
 }
 
 function sendMessage($token, $id, $message){
