@@ -10,7 +10,7 @@ $output = json_decode(file_get_contents('php://input'), true);
 $id = $output['message']['chat']['id'];
 $token = '414134665:AAHfOIdeikQD04NdKckL8wadhqzggvmSqw0';
 $message = $output['message']['text'];
-file_put_contents('logs.txt', $message);
+file_put_contents('logs.txt', $message.' '.$id);
 
 if (isset($output['callback_query']['data'])){
     checkInline($output, $token);
